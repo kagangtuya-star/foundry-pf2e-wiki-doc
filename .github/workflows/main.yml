@@ -1,0 +1,54 @@
+name: Sync External Wiki
+
+on:
+  schedule:
+    # 每天凌晨 0 点执行一次 (UTC 时间)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # 允许手动触发同步
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v4
+        with:
+          # 获取完整历史以便提交
+          fetch-depth: 0
+
+      - name: Clone external wiki
+        run: |
+          # 克隆 pf2e 的 wiki 仓库到临时目录
+          git clone https://github.com/foundryvtt/pf2e.wiki.git temp_wiki
+
+      - name: Sync files to repository
+        run: |
+          # 创建存放文档的目录（如果不存在）
+          # 假设你想存放在仓库根目录下的 docs/ 文件夹中
+          mkdir -p docs/
+          
+          # 使用 rsync 同步文件，排除 .git 目录
+          # -a: 归档模式, -v: 显示详情, --delete: 删除本地仓库中远程已删除的文件
+          rsync -av --delete --exclude='.git' temp_wiki/ docs/
+          
+          # 清理临时目录
+          rm -rf temp_wiki
+
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          git add docs/
+          
+          # 检查是否有文件变化
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: sync with foundryvtt/pf2e wiki ($(date +'%Y-%m-%d'))"
+            git push
+          fi
