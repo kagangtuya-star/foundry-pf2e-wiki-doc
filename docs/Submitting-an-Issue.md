@@ -1,0 +1,1 @@
+This page will explain how to use the console to provide log data to the devs for troubleshooting. 
