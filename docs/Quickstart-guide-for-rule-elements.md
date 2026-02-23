@@ -539,31 +539,18 @@ A common use of AE likes is increasing proficiency. If a feat makes you trained 
 }
 ```
 
-This rule element is able to use brackets, like this rule element from Acrobat Dedication
+This rule element is able to use actor data, like this rule element from Acrobat Dedication
 
 ```json
 {
     "key": "ActiveEffectLike",
     "mode": "upgrade",
     "path": "system.skills.acrobatics.rank",
-    "value": {
-        "brackets": [{
-            "end": 6,
-            "start": 1,
-            "value": 2
-        }, {
-            "end": 14,
-            "start": 7,
-            "value": 3
-        }, {
-            "start": 15,
-            "value": 4
-        }]
-    }
+    "value": "ternary(gte(@actor.level, 15), 4, ternary(gte(@actor.level, 7), 3, 2))"
 }
 ```
 
-The brackets used in this are the same as any other rule element, however care should be taken to not rely on other rule elements or active effects to modify the bracketed value.  Character level, item level, attribute modifiers, and other values not modified by rule elements should be safe to bracket on.  Bracketing on the rank of a skill or weapon proficiency will not be safe since these are modified by other rule elements and the order of data preparation may yield unreliable results. If you need to do this you can change the priority or even the phase of the RE. See the below section on phases and actor data preparation for more on that.
+Here we used a nested ternary expression to increase the proficiency automatically with character level. Care should be taken when using actor data with an AE like. Character level, item level, attribute modifiers, and other values not modified by rule elements or constructed as part of character data prep should be safe to use in these rules.  Referencing the rank of a skill or weapon proficiency will not be safe since these are modified by other rule elements and the order of data preparation may yield unreliable results. If you need to do this you can change the priority or even the phase of the RE. See the below section on phases and actor data preparation for more on that.
 
 So far we have seen numeric operations from AE likes, but  they can also work with strings. For example, in actor data under `system.build.languages.granted` you will see an array of languages. You can use the `add` mode to append to this array, like in this example from the Robe of Stone which gives the actor the Petran language.
 ```json
@@ -1133,22 +1120,10 @@ Canny Acumen uses a Choice Set to pick either one of the three saves, or Percept
 
 ```json
 {
-    "key": "ActiveEffectLike",
-    "mode": "upgrade",
-    "path": "{item|flags.pf2e.rulesSelections.cannyAcumen}",
-    "value": {
-        "brackets": [
-            {
-                "end": 16,
-                "start": 1,
-                "value": 2
-            },
-            {
-                "start": 17,
-                "value": 3
-            }
-        ]
-    }
+  "key": "ActiveEffectLike",
+  "mode": "upgrade",
+  "path": "{item|flags.pf2e.rulesSelections.cannyAcumen}",
+  "value": "ternary(gte(@actor.level,17),3,2)"
 }
 ```
 
@@ -1833,34 +1808,15 @@ A Damage Dice Rule element adds additional dice to damage or critical damage rol
 }
 ```
 
-The diceNumber or dieSize properties can be set in a value brackets object or ternary, like this example from Vicious Swing (formerly Power Attack)
+The diceNumber or dieSize properties can be set in a ternary, like this example from Vicious Swing (formerly Power Attack)
 ```json
 {
-    "key": "DamageDice",
-    "predicate": [
-        "melee",
-        "vicious-swing"
-    ],
-    "selector": "damage",
-    "value": {
-        "brackets": [{
-            "end": 9,
-            "value": {
-                "diceNumber": 1
-            }
-        }, {
-            "end": 17,
-            "start": 10,
-            "value": {
-                "diceNumber": 2
-            }
-        }, {
-            "start": 18,
-            "value": {
-                "diceNumber": 3
-            }
-        }]
-    }
+  "diceNumber": "ternary(gte(@actor.level, 18), 3,ternary(gte(@actor.level, 10), 2, 1))",
+  "key": "DamageDice",
+  "predicate": [
+    "vicious-swing"
+  ],
+  "selector": "melee-strike-damage"
 }
 ```
 
@@ -2069,27 +2025,6 @@ Regeneration is given by the same rule element, and can have `deactivatedBy` add
 FlatModifier allows us to add flat values to checks, damage rolls, or statistics. It has a UI which covers most of the functions of the rule element, but some still require editing the full JSON object.
 
 ![image](https://user-images.githubusercontent.com/80183198/193498532-a732f5d6-e7c5-4cee-ab91-83ab173c97e5.png)
-
-The UI supports easily building out bracketed values, which may be easier for people than writing a ternary expression.
-```json
-{
-    "key": "FlatModifier",
-    "selector": "damage",
-    "value": {
-        "brackets": [{
-            "end": 6,
-            "value": 2
-        }, {
-            "start": 7,
-            "end": 14,
-            "value": 6
-        }, {
-            "start": 15,
-            "value": 12
-        }]
-    }
-}
-```
 
 The damage selector applies to all damage rolls, including rolls from inline buttons or spells. If we want to restrict it down farther we can with the `strike-damage` selector, such as this example which adds 2 damage to any non-agile strike.
 ```json
