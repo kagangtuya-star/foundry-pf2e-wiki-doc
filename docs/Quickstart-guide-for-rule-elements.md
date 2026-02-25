@@ -2495,14 +2495,14 @@ Right now the valid list of alteration properties and the modes they support is 
 |other-tags|action, ancestry, affliction, armor, background, backpack, book, campaignFeature, class, condition, consumable, deity, effect, equipment, feat, heritage, kit, lore, melee, shield, spell, spellcastingEntry, treasure, weapon|add, subtract, remove|
 |pd-recovery-dc|condition|add, downgrade, override, remove, subtract, upgrade|
 |persistent-damage|condition|override|
-|potency|weapon, armor|upgrade, override|
+|runes-potency|weapon, armor|upgrade, override|
 |range-increment|weapon|add, multiply, override, remove, subtract|
 |range-max|weapon|add, multiply, override, remove, subtract|
 |rarity|armor, container, book, consumable, equipment, shield, treasure, weapon|override|
 |resilient|armor|upgrade, override|
 |speed-penalty|armor, shield|add, downgrade, override, remove, subtract, upgrade|
 |strength|armor|add, downgrade, override, remove, subtract, upgrade|
-|striking|weapon|upgrade, override|
+|runes-striking|weapon|upgrade, override|
 |traits|action, ancestry, affliction, armor, background, backpack, book, campaignFeature, class, condition, consumable, effect, equipment, feat, heritage, kit, melee, shield, spell, treasure, weapon|add, remove, subtract|
 
 For the `frequency-per` property the values are listed below (`PT10M` is `per 10 minutes`, etc):
