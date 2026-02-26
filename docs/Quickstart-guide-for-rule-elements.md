@@ -328,7 +328,7 @@ Let's look at referencing a string. If we have a rule that adds damage to a stri
 {
     "key": "FlatModifier",
     "selector": "strike-damage",
-    "damageType": "{item|flags.pf2e.rulesSelections.damage}",
+    "damageType": "{item|flags.system.rulesSelections.damage}",
     "value": 1
 }
 ```
@@ -513,19 +513,21 @@ Some simple examples: The system does not inherently know how many feats from an
 {
     "key": "ActiveEffectLike",
     "mode": "add",
-    "path": "flags.pf2e.barbarianArchetype.featCount",
+    "path": "flags.system.barbarianArchetype.featCount",
     "value": 1
 }
 ```
 
-This data path did not exist before, the system creates it when the rule becomes active on an actor. If you are storing custom data like this put it under flags in actor data. The `pf2e` namespace in flags should be safe to use for most homebrew, but you can also use `flags.world` or `flags.moduleName` if you are making a module and want to be absolutely sure there won't be any conflicts between your work and things the system may do in the future. Don't store arbitrary data like this outside of flags.
+This data path did not exist before, the system creates it when the rule becomes active on an actor. If you are storing custom data like this put it under flags in actor data. The `system` namespace in flags should be safe to use for most homebrew, but you can also use `flags.world` or `flags.moduleName` if you are making a module and want to be absolutely sure there won't be any conflicts between your work and things the system may do in the future. Don't store arbitrary data like this outside of flags.
+
+You may see references to `flags.pf2e` or `flags.sf2e`. These are usable, but `flags.system` will automatically resolve to whichever of the two systems you are using, so it is the preferred reference.
 
 Once the data is written it is available on the actor for other rule elements (or even other modules) to us. The Barbarian Resiliency feat has this FlatModifier on it to add 3 HP for every taken feat.
 ```json
 {
     "key": "FlatModifier",
     "selector": "hp",
-    "value": "3 * @actor.flags.pf2e.barbarianArchetype.featCount"
+    "value": "3 * @actor.flags.system.barbarianArchetype.featCount"
 }
 ```
 
@@ -597,7 +599,7 @@ Other examples of this type of interaction is in the Deny Advantage feature, or 
 {
   "key": "ActiveEffectLike",
   "mode": "override",
-  "path": "flags.pf2e.colorDarkvision",
+  "path": "flags.system.colorDarkvision",
   "value": true
 }
 ```
@@ -611,7 +613,7 @@ More complicated examples of AE like rule elements can be seen in deviant abilit
 {
   "key": "ActiveEffectLike",
   "mode": "override",
-  "path": "flags.pf2e.deviantAbilities.awakenedChoices",
+  "path": "flags.system.deviantAbilities.awakenedChoices",
   "priority": 10,
   "value": {
     "greater": [],
@@ -620,12 +622,12 @@ More complicated examples of AE like rule elements can be seen in deviant abilit
 }
 ```
 
-This rule creates an object with two sub arrays, to work with the two levels of awakening feat. `flags.pf2e.deviantAbilities.awakenedChoices.lesser` would return `[]` in the console now. These arrays are then appended to by rules.
+This rule creates an object with two sub arrays, to work with the two levels of awakening feat. `flags.system.deviantAbilities.awakenedChoices.lesser` would return `[]` in the console now. These arrays are then appended to by rules.
 ```json
 {
   "key": "ActiveEffectLike",
   "mode": "add",
-  "path": "flags.pf2e.deviantAbilities.awakenedChoices.lesser",
+  "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
   "value": {
     "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.BoneSpikesReach",
     "predicate": [
@@ -642,7 +644,7 @@ This rule creates an object with two sub arrays, to work with the two levels of 
 {
   "key": "ActiveEffectLike",
   "mode": "add",
-  "path": "flags.pf2e.deviantAbilities.awakenedChoices.lesser",
+  "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
   "value": {
     "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.BoneSpikesPoison",
     "predicate": [
@@ -655,10 +657,10 @@ This rule creates an object with two sub arrays, to work with the two levels of 
 }
 ```
 
-This adds an entry to the array under the actor flags so that `flags.pf2e.deviantAbilities.awakenedChoices.lesser` returns `[{value1},{value2}]` where `{value}` are the value objects above. Then a ChoiceSet rule element can read this entire array to fill in its choices
+This adds an entry to the array under the actor flags so that `flags.system.deviantAbilities.awakenedChoices.lesser` returns `[{value1},{value2}]` where `{value}` are the value objects above. Then a ChoiceSet rule element can read this entire array to fill in its choices
 ```json
 {
-  "choices": "flags.pf2e.deviantAbilities.awakenedChoices.lesser",
+  "choices": "flags.system.deviantAbilities.awakenedChoices.lesser",
   "key": "ChoiceSet",
   "prompt": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.Prompt",
   "rollOption": "awakening"
@@ -1005,7 +1007,7 @@ This is the most complex single rule element in the system, complex enough that 
 
 ## Choice Set
 
-The Choice Set Rule Element is a highly flexible Rule Element, prompting a character to make a choice from an array of options. This choice is then stored as a flag on the item, which can be referenced in other Rule Elements on the same item, using the data path `flags.pf2e.rulesSelections.flagName`.
+The Choice Set Rule Element is a highly flexible Rule Element, prompting a character to make a choice from an array of options. This choice is then stored as a flag on the item, which can be referenced in other Rule Elements on the same item, using the data path `flags.system.rulesSelections.flagName`.
 ```json
 {
     "key": "ChoiceSet",
@@ -1044,7 +1046,7 @@ Another use is for the choices to be the uuids of items. In combination with Gra
 ```json
 {
     "key": "GrantItem",
-    "uuid": "{item|flags.pf2e.rulesSelections.feat}"
+    "uuid": "{item|flags.system.rulesSelections.feat}"
 }
 ```
 
@@ -1057,7 +1059,7 @@ This rule element cannot be used on consumable items.
 
 You can also use a `"rollOption"` field, to store the choice automatically as a roll option. This adds a prefix to the Choice, so `"rollOption": "prefix"` would create a roll option of `"prefix:choice"` on the actor. Other rules can then predicate on this roll option as normal.
 
-The `actorFlag` parameter automatically sets the choice on the actor flags. For example the Magiphage ancestry feature uses this to store a flag with the magical tradition and skill from a choice under `actor.flags.pf2e.magiphage`. Once this choice is made you can use `{actor|flags.pf2e.magiphage.skill}` to reference the skill, even on other items. This is not necessary to use when the reference is on the same item as the choice, since `{item|flags.pf2e.magiphage.skill}` would resolve without this parameter being set to true.
+The `actorFlag` parameter automatically sets the choice on the actor flags. For example the Magiphage ancestry feature uses this to store a flag with the magical tradition and skill from a choice under `actor.flags.system.magiphage`. Once this choice is made you can use `{actor|flags.system.magiphage.skill}` to reference the skill, even on other items. This is not necessary to use when the reference is on the same item as the choice, since `{item|flags.system.magiphage.skill}` would resolve without this parameter being set to true.
 
 ```json
 {
@@ -1122,7 +1124,7 @@ Canny Acumen uses a Choice Set to pick either one of the three saves, or Percept
 {
   "key": "ActiveEffectLike",
   "mode": "upgrade",
-  "path": "{item|flags.pf2e.rulesSelections.cannyAcumen}",
+  "path": "{item|flags.system.rulesSelections.cannyAcumen}",
   "value": "ternary(gte(@actor.level,17),3,2)"
 }
 ```
@@ -1159,7 +1161,7 @@ Because the path is different the whole path is set as the value. But if you are
 {
     "key": "ActiveEffectLike",
     "mode": "upgrade",
-    "path": "system.skills.{item|flags.pf2e.rulesSelections.skill}.rank",
+    "path": "system.skills.{item|flags.system.rulesSelections.skill}.rank",
     "value": 1
 }
 ```
@@ -1198,7 +1200,7 @@ This is paired with two other rules to add the weakness and resistance, the valu
 ```json
 {
     "key": "weakness",
-    "type": "{item|flags.pf2e.rulesSelections.terrain.weakness}",
+    "type": "{item|flags.system.rulesSelections.terrain.weakness}",
     "value": 5
 }
 ```
@@ -1206,7 +1208,7 @@ This is paired with two other rules to add the weakness and resistance, the valu
 ```json
 {
     "key": "resistance",
-    "type": "{item|flags.pf2e.rulesSelections.terrain.resistance}",
+    "type": "{item|flags.system.rulesSelections.terrain.resistance}",
     "value": 5
 }
 ```
@@ -1679,7 +1681,7 @@ Another example of this is from the Psychic's Oscillating Wave, which changes th
     "selectors": [
         "inline-damage"
     ],
-    "value": "{item|flags.pf2e.rulesSelections.conservationOfEnergy}"
+    "value": "{item|flags.system.rulesSelections.conservationOfEnergy}"
 }
 ```
 
@@ -2205,7 +2207,7 @@ You can also use Grant Item with Choice Set, to allow the character to choose an
 ```json
 {
     "key":"GrantItem",
-    "uuid":"{item|flags.pf2e.rulesSelections.druidicOrder}"
+    "uuid":"{item|flags.system.rulesSelections.druidicOrder}"
 }
 ```
 
@@ -2454,12 +2456,12 @@ A description override replaces the text entirely, and can use HTML. Since this 
     ],
     "property": "description",
     "value": [{
-        "text": "You breathe in deeply and release the energy stored within you in a powerful exhalation. Your dragon breath is a @Template[type:{actor|flags.pf2e.dragonAncestry.breath.shape}|distance:{actor|flags.pf2e.dragonAncestry.breath.distance}] and deals @Damage[(2*max(,ceil(@actor.level/2))){actor|flags.pf2e.dragonAncestry.breath.dieSize}[@actor.flags.pf2e.dragonAncestry.breath.damageType]] damage. Each creature in the area must attempt a @Check[type:{actor|flags.pf2e.dragonAncestry.breath.saveType}|dc:resolve(@actor.system.attributes.classOrSpellDC.value)|basic:true] saving throw against the higher of your class DC or spell DC. You can't use this ability again for 10 minutes; starting at level 3, you instead can't use the ability again for [[/r 1d4 #Recharge Dragon Breath]] rounds.",
+        "text": "You breathe in deeply and release the energy stored within you in a powerful exhalation. Your dragon breath is a @Template[type:{actor|flags.system.dragonAncestry.breath.shape}|distance:{actor|flags.system.dragonAncestry.breath.distance}] and deals @Damage[(2*max(,ceil(@actor.level/2))){actor|flags.system.dragonAncestry.breath.dieSize}[@actor.flags.system.dragonAncestry.breath.damageType]] damage. Each creature in the area must attempt a @Check[type:{actor|flags.system.dragonAncestry.breath.saveType}|dc:resolve(@actor.system.attributes.classOrSpellDC.value)|basic:true] saving throw against the higher of your class DC or spell DC. You can't use this ability again for 10 minutes; starting at level 3, you instead can't use the ability again for [[/r 1d4 #Recharge Dragon Breath]] rounds.",
         "predicate": [{
             "not": "breath-shape:burst"
         }]
     }, {
-        "text": "You breathe in deeply and release the energy stored within you in a powerful exhalation. Your dragon breath is a @Template[type:{actor|flags.pf2e.dragonAncestry.breath.shape}|distance:{actor|flags.pf2e.dragonAncestry.breath.distance}] within 60 feet and deals @Damage[(2*max(2,ceil(@actor.level/2))){actor|flags.pf2e.dragonAncestry.breath.dieSize}[@actor.flags.pf2e.dragonAncestry.breath.damageType]] damage of a type depending on your heritage. Each creature in the area must attempt a @Check[type:{actor|flags.pf2e.dragonAncestry.breath.saveType}|dc:resolve(@actor.system.attributes.classOrSpellDC.value)|basic:true] saving throw against the higher of your class DC or spell DC. You can't use this ability again for 10 minutes; starting at level 3, you instead can't use the ability again for [[/r 1d4 #Recharge Dragon Breath]] rounds.",
+        "text": "You breathe in deeply and release the energy stored within you in a powerful exhalation. Your dragon breath is a @Template[type:{actor|flags.system.dragonAncestry.breath.shape}|distance:{actor|flags.system.dragonAncestry.breath.distance}] within 60 feet and deals @Damage[(2*max(2,ceil(@actor.level/2))){actor|flags.system.dragonAncestry.breath.dieSize}[@actor.flags.system.dragonAncestry.breath.damageType]] damage of a type depending on your heritage. Each creature in the area must attempt a @Check[type:{actor|flags.system.dragonAncestry.breath.saveType}|dc:resolve(@actor.system.attributes.classOrSpellDC.value)|basic:true] saving throw against the higher of your class DC or spell DC. You can't use this ability again for 10 minutes; starting at level 3, you instead can't use the ability again for [[/r 1d4 #Recharge Dragon Breath]] rounds.",
         "predicate": [
             "breath-shape:burst"
         ]
@@ -2855,7 +2857,7 @@ RollOptions with toggles can also have suboptions, which create a selectable men
 This damage type is then referenced in an AdjustModifier rule element
 ```json
 {
-  "damageType": "{item|flags.pf2e.rulesSelections.spiritRage}",
+  "damageType": "{item|flags.system.rulesSelections.spiritRage}",
   "key": "AdjustModifier",
   "mode": "upgrade",
   "predicate": [
@@ -2889,7 +2891,7 @@ Suboptions must be strings, even if the value is a number
 }
 ```
 
-When referenced using `@item.flags.pf2e.rulesSelections.extraPower` this would be coerced to a number.
+When referenced using `@item.flags.system.rulesSelections.extraPower` this would be coerced to a number.
 
 Toggles can be set to `alwaysActive`
 ```json
@@ -3263,7 +3265,7 @@ Assurance is done in two parts, one is the SubstituteRoll and the other is an Ad
 {
     "key": "SubstituteRoll",
     "label": "PF2E.SpecificRule.SubstituteRoll.Assurance",
-    "selector": "{item|flags.pf2e.rulesSelections.assurance}",
+    "selector": "{item|flags.system.rulesSelections.assurance}",
     "slug": "assurance",
     "value": 10
 }
@@ -3276,7 +3278,7 @@ Assurance is done in two parts, one is the SubstituteRoll and the other is an Ad
         "substitute:assurance",
         { "not": "bonus:type:proficiency" }
     ],
-    "selector": "{item|flags.pf2e.rulesSelections.assurance}",
+    "selector": "{item|flags.system.rulesSelections.assurance}",
     "suppress": true
 }
 ```
