@@ -22,6 +22,8 @@ We can also add special damage categories to a roll: `@Damage[(2d6 + 4 + (2d6[pr
 
 If the number isn't a damage value, use something like `[[/gmr 1d4 #Recharge Breath Weapon]]{1d4 rounds}` or equivalent. In this example of a monster cooldown, we use GM rolls (`/gmr`) to hide the roll message from players.
 
+You can include any system roll options in the options parameter of `@Damage`, for example you can use the `damage:material:x` options to make an inline damage roll that counts as being a precious material, like fire that counts as silver and cold-iron: `@Damage[1d6[fire]|options:damage:material:silver,damage:material:cold-iron]`. The multiple colons in these roll options may make this seem strange typed out, but they are still comma separated values like any other argument and no different to `@Damage[1d6[fire]|options:x,y]` to the code that parses this text.
+
 ### Inline Check Links
 
 You can make an inline roll links for different checks, including setting a DC to output the degree of success, traits and other roll options can be pushed to the roll to make the links activate automation stored in rule elements and elsewhere.
