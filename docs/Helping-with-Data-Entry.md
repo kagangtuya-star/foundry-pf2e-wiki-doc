@@ -107,9 +107,9 @@ this will tell you what the names of each repo are. Typically these will be `ori
 
 `git checkout master`
 
-`git pull upstream v13-dev`
+`git pull upstream v14-dev`
 
-`git rebase upstream/v13-dev`
+`git rebase upstream/v14-dev`
 
 Then push the branch (you should not need to make a commit, just push). If you are using github mirroring (premium feature or grandfathered account) this step can be reduced to simply `git checkout master` followed by `git pull`.
 
@@ -119,7 +119,7 @@ If you are having problems with git, or your master branch had something pushed 
 ```
 git checkout master
 git reset --hard HEAD~1000
-git pull --ff-only https://github.com/foundryvtt/pf2e.git v13-dev
+git pull --ff-only https://github.com/foundryvtt/pf2e.git v14-dev
 git push --force origin master
 ```
 
