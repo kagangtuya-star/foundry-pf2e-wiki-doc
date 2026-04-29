@@ -423,6 +423,8 @@ The full list of registerable traits and items are as follows:
 
 For a full example of how this is used see the module.json of the PF2e Expansion Pack module.json file.
 
+Some trait lists propagate to others, such as equipment traits propagating to armors as well.
+
 ### Mapping Compendium Art
 
 If your module contains art to map to the *system* compendiums, such as a pack of top down tokens for monster art, you can use the module.json to tell the system where to find your mapping file, and the mapping file contains the explicit mapping by id and compendium for each creature you want to add art to. This is no longer a PF2e exclusive feature, and uses a core Foundry method that differs from how the system had implemented it.
