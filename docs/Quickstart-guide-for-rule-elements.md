@@ -2647,6 +2647,19 @@ Exceptions can also be made as custom objects, such as resistance to physical ex
 }
 ```
 
+You can also override a value with another one.
+
+```json
+{
+    "key": "Resistance",
+    "type": "void",
+    "value": 5,
+    "override": true
+}
+```
+
+This sets the void resistance to 5, overriding any existing resistance. Right now there is no way to modify an existing resistance other than by overriding it with a new value, so it is impossible to add or reduce the resistance by some set amount.
+
 ## Martial Proficiency
 
 The MartialProficiency rule element creates a proficiency in a definable set of weapons. This RE from the Gunslinger class for example
