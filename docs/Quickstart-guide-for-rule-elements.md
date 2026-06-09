@@ -2477,7 +2477,7 @@ Right now the valid list of alteration properties and the modes they support is 
 |area-size|spell|add, subtract, upgrade, downgrade, override|
 |badge-max|effect|downgrade, override|
 |badge-value|condition, effect|add, downgrade, override, remove, subtract, upgrade|
-|bulk|armor, container, book, consumable, equipment, shield, treasure, weapon|override|
+|bulk|armor, backpack, book, consumable, equipment, shield, treasure, weapon|override|
 |category|armor|override|
 |check-penalty|armor|add, downgrade, override, remove, subtract, upgrade|
 |damage-dice-faces|weapon|downgrade, override, upgrade|
@@ -2490,9 +2490,9 @@ Right now the valid list of alteration properties and the modes they support is 
 |frequency-max|action, feat|add, downgrade, multiply, override, remove, subtract, upgrade|
 |frequency-per|action, feat|downgrade, override, upgrade|
 |group|armor, weapon|override|
-|hardness|armor, container, book, consumable, equipment, shield, treasure, weapon|add, downgrade, multiply, override, remove, subtract, upgrade|
-|hp-max|armor, container, book, consumable, equipment, shield, treasure, weapon|add, downgrade, multiply, override, remove, subtract, upgrade|
-|material-type|armor, container, book, consumable, equipment, shield, treasure, weapon|override|
+|hardness|armor, backpack, book, consumable, equipment, shield, treasure, weapon|add, downgrade, multiply, override, remove, subtract, upgrade|
+|hp-max|armor, backpack, book, consumable, equipment, shield, treasure, weapon|add, downgrade, multiply, override, remove, subtract, upgrade|
+|material-type|armor, backpack, book, consumable, equipment, shield, treasure, weapon|override|
 |name|action, ancestry, affliction, armor, background, backpack, book, campaignFeature, class, condition, consumable, deity, effect, equipment, feat, heritage, kit, lore, melee, shield, spell, spellcastingEntry, treasure, weapon|override|
 |other-tags|action, ancestry, affliction, armor, background, backpack, book, campaignFeature, class, condition, consumable, deity, effect, equipment, feat, heritage, kit, lore, melee, shield, spell, spellcastingEntry, treasure, weapon|add, subtract, remove|
 |pd-recovery-dc|condition|add, downgrade, override, remove, subtract, upgrade|
@@ -2500,7 +2500,7 @@ Right now the valid list of alteration properties and the modes they support is 
 |runes-potency|weapon, armor|upgrade, override|
 |range-increment|weapon|add, multiply, override, remove, subtract|
 |range-max|weapon|add, multiply, override, remove, subtract|
-|rarity|armor, container, book, consumable, equipment, shield, treasure, weapon|override|
+|rarity|armor, backpack, book, consumable, equipment, shield, treasure, weapon|override|
 |resilient|armor|upgrade, override|
 |speed-penalty|armor, shield|add, downgrade, override, remove, subtract, upgrade|
 |strength|armor|add, downgrade, override, remove, subtract, upgrade|
