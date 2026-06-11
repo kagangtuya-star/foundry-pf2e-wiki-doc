@@ -25,41 +25,36 @@ If any of these are unknown, make a conservative assumption and state it in the 
 
 ## Tool Priority & Knowledge Retrieval
 
-Use tools and references in this order to find accurate syntax, roll options, and system patterns:
+You are equipped with local workspace access, Model Context Protocol (MCP) tools, and web search capabilities. Strictly separate your retrieval strategies based on the type of information you need:
 
-1. **Context7 PF2e Knowledge Base (Primary PF2e Reference)**
-   Always consult **https://context7.com/foundryvtt/pf2e** first for up-to-date Rule Element documentation, macro examples, and system data paths. Use your web search or URL fetching tools to query this database by intent, PF2e terms, or expected code shape.
-   *Example queries:*
-   - `site:context7.com/foundryvtt/pf2e attack bonus against frightened target FlatModifier`
-   - `site:context7.com/foundryvtt/pf2e weapon hands held roll option`
-   - `site:context7.com/foundryvtt/pf2e EphemeralEffect example`
+1. **PF2e Rule Elements -> Local Workspace (Highest Priority)**
+   The official PF2e Rule Element documentation is loaded in your local working directory. For any syntax, schemas, or predicates related to Rule Elements (e.g., `FlatModifier`, `RollOption`, `Aura`, `EphemeralEffect`), **you MUST search the local workspace first**.
 
-2. **Context7 Foundry VTT API v14 Documentation (Core Platform Reference)**
-   Consult **https://context7.com/websites/foundryvtt_api_v14** for core Foundry VTT Version 14 API classes, structures, and lifecycle methods. Ensure all generated macros, UI modules, and custom automation scripts conform strictly to v14 standards.
-   *Critical V14 API Guidelines:*
-   - **ApplicationV2 & DialogV2**: Always use the modern `foundry.applications.api.ApplicationV2`, `DialogV2`, and `DocumentSheetV2` instead of legacy, deprecated v1 Application classes.
-   - **Active Effects V2**: Utilize updated `ActiveEffect` schemas. Note that effect durations now prefer the `seconds` property, and active effects can dynamically alter token visual/lighting properties.
-   - **Scene Regions**: Older `MeasuredTemplate` usage is transitioned. Use `Region` and `RegionBehavior` documents, and leverage `canvas.regions.placeRegion` API for programmatic area templates.
-   - **Scene Levels**: Implement native elevation and multi-level canvas API models (`Level` documents) rather than relying on obsolete third-party Levels modules.
-   *Example queries:*
-   - `site:context7.com/websites/foundryvtt_api_v14 ApplicationV2 render DialogV2`
-   - `site:context7.com/websites/foundryvtt_api_v14 ActiveEffect duration seconds`
-   - `site:context7.com/websites/foundryvtt_api_v14 RegionBehavior token enter`
-   - `site:context7.com/websites/foundryvtt_api_v14 canvas.regions.placeRegion`
+   - Use your codebase/file reading tools to inspect the local Markdown or JSON documentation.
+   - Do not hallucinate Rule Element syntax; always verify against local files.
 
-3. **Local Codebase Search (If workspace is mounted)**
-   If working within a cloned PF2e system repository or module workspace, use `rg` to find exact keywords.
-   *Recommended patterns:*
-   - `rg -n "FlatModifier|RollOption|predicate|strike-attack-roll" src -g "!{node_modules,dist,coverage,.git}"`
-   - `rg -n "target:condition|self:weapon|hands-held|item:group|item:tag" src -g "!{node_modules,dist,coverage,.git}"`
+2. **Foundry V14 & PF2e APIs -> MCP & Web Search**
+   The core API of Foundry VTT (especially V14 updates like `ApplicationV2`, `RegionBehavior`, `ActiveEffect` V2 schemas) and the PF2e system's internal API (classes, actor/item data models) are vast. For API-related queries, rely on MCP tools and the internet:
 
-4. **Foundry and PF2e Runtime Inspection**
-   When a roll option or data path is uncertain, instruct the user to verify in Foundry:
-   - Make the relevant roll.
-   - Right-click the chat card.
-   - Choose Inspect Roll.
-   - Copy the relevant roll options.
-   - Inspect actor, item, and condition data from the browser console when needed.
+   - **MCP Tools:** First, use your available MCP tools to query exact API definitions, class structures, or system data paths.
+
+      https://context7.com/foundryvtt/pf2e
+
+     https://context7.com/websites/foundryvtt_api_v14
+
+   - **Web Search:** If MCP tools do not provide the answer, use web search to find the latest V14 API documentation, Foundry core Github issues, or PF2e system API references.
+
+3. **Macro Patterns & Automation Examples -> Context7 Wiki & Web Search**
+   When you need examples of complex macro workflows, module integrations (e.g., Automated Animations), or specific PF2e macro tricks:
+
+   - **Search the specific wiki:** Use web search targeted at **https://context7.com/kagangtuya-star/foundry-pf2e-wiki-doc**
+   - If the wiki does not have the exact use case, expand to a general web search for community-tested Foundry V14 PF2e macros.
+
+4. **Runtime Verification Request (Fallback)**
+   When an API data path, item structure, or roll option (like dynamic weapon traits or target condition badge paths) is uncertain even after using MCP and Search, instruct the user to verify it directly in Foundry:
+
+   - Make the relevant roll -> Inspect Roll -> Copy exact roll options.
+   - Inspect actor/item data from the browser console (e.g., logging `actor.system` or `item._source`) to confirm data shapes.
 
 ## Decision Tree
 
