@@ -1,15 +1,21 @@
 ## Modules
-There's a load of modules for PF2e, but the best advice is to start without **any** of them and only add them if you think you need them - the system is designed to be complete without using modules! The one exception is potentially the [PF2e Companion Compendia](https://github.com/TikaelSol/PF2e-Animal-Companions) module, which makes building animal companions, construct companions, and eidolons easier. If you have a character who uses a companion this module is worth installing right away to enable making the companion easily. It is made by one of our system devs and is kept up to date reliably.
+There's a load of modules for PF2e, but the best advice is to start without **any** of them and only add them if you think you need them - the system is designed to be complete without using modules!
 
 You may find lists of modules from other people online, but don't install things from lists blindly. It's quite common for people online to use old modules that are no longer compatible, or even to list modules that simply will not work with the PF2e system at all and ones that could potentially cause issues with actors or the game world. Remember that the more modules you have the higher chance of an issue arising, and all the system devs run relatively module light for a reason.
 
-(Updated Aug 14 2025)
+**System Related Modules:**
+Several modules are made and maintained by us system devs as optional extensions of the system and its data.
+- [PF2e Companion Compendia](https://github.com/TikaelSol/PF2e-Animal-Companions) makes building animal companions, construct companions, eidolons, and other related companions easier. If you have a character who uses a companion this module is worth installing right away to enable making the companion easily. This module does not add support for familiars, as those are included in the system itself.
+- [Pathfinder Anachronism](https://foundryvtt.com/packages/pf2e-anachronism) adds Pathfinder 2e content to the SF2e system
+- [Starfinder Anachronism](https://foundryvtt.com/packages/sf2e-anachronism) adds Starfinder 2e content to the PF2e system
+- [PF2e Playtest Data](https://foundryvtt.com/packages/pf2e-playtest-data) (Provides classes that Paizo has in playtest when there is one)
+
+(Updated Aug 10 2026)
 There are modules that many people will recommend, add them as you become more comfortable and find a need to the specific things the module adds. Be sure to check if a module is compatible with the latest version of Foundry before installing it:
 - [Find the Culprit](https://foundryvtt.com/packages/find-the-culprit/) (For when you want to know what module you installed might be causing anything to happen in your game, because it's an issue or you maybe didn't know a feature of the module you installed)
 - [PDF to Foundry](https://foundryvtt.com/packages/pdftofoundry) (Takes watermarked official adventure PDFs from Paizo and sets up 90% of them for you)
 - [Deidril's PDF Importer](https://foundryvtt.com/packages/pf2-pdf-en-import) (PDF to Foundry is no longer having content added to it, this importer works similarly for some newer books)
 - [Quick Insert](https://foundryvtt.com/packages/quick-insert) (Quick search for anything in the compendiums or your world, you can change the default keybind since control - space is unusual for many)
-- [Starfinder Anachronism](https://foundryvtt.com/packages/sf2e-anachronism) (Adds Starfinder 2e content to the PF2e system)
 - [PF2e Keybind Menagerie](https://foundryvtt.com/packages/pf2e-f-is-for-flatfooted) (Adds over 100 configurable keybinds to speed up gameplay)
 - [PF2e Workbench](https://foundryvtt.com/packages/xdy-pf2e-workbench) (Adds a bunch of miscellaneous features, including automation for ancestry paragon and dual class)
 - [PF2E Exploit Vulnerability](https://foundryvtt.com/packages/pf2e-thaum-vuln) (Helps automate Thaumaturge features)
@@ -25,8 +31,8 @@ There are modules that many people will recommend, add them as you become more c
 - [Wayfinder](https://foundryvtt.com/packages/wayfinder) (Adds pathfinding to automatically route token movement around walls)
 - [PF2e Usage Updater](https://foundryvtt.com/packages/pf2e-usage-updater) (Refreshes/refills actions on the sheet as time passes)
 - [PF2E Bestiary Tracking](https://foundryvtt.com/packages/pf2e-bestiary-tracking) (Provides a bestiary UI for GM and players where information can be selectively revealed)
-- [Monk's PF2e Encounter Aftermath](https://forge-vtt.com/bazaar/package/monks-pf2e-encounter-aftermath) (Adds a tab to the Party sheet for players to set up post-combat activities)
-- [pf2e award xp](https://forge-vtt.com/bazaar/package/pf2e-award-xp) (Adds xp award popup after combat and provides ways to quickly award xp outside combat)
+- [Monk's PF2e Encounter Aftermath](https://foundryvtt.com/packages/monks-pf2e-encounter-aftermath) (Adds a tab to the Party sheet for players to set up post-combat activities)
+- [pf2e award xp](https://foundryvtt.com/packages/pf2e-award-xp) (Adds xp award popup after combat and provides ways to quickly award xp outside combat)
 - [PF2e Item Activations](https://foundryvtt.com/packages/pf2e-item-activations) (Adds actions to the sheet from equipment)
 - [PF2e Assistant](https://foundryvtt.com/packages/pf2e-assistant) (Automates the application of various effects and conditions when actions are used)
 - [PF2e Avoid Notice](https://foundryvtt.com/packages/pf2e-avoid-notice) (Shows results of initiative stealth check vs combatant perception DCs on the initiative messages when Begin Encounter is clicked)
@@ -34,22 +40,21 @@ There are modules that many people will recommend, add them as you become more c
 - [Item Piles: PF2e](https://foundryvtt.com/packages/itempiles-pf2e) (Adds support for [Item Piles](https://foundryvtt.com/packages/item-piles) module for advanced loot and merchant functions)
 - [PF2e Ctrl Click Effects](https://foundryvtt.com/packages/pf2e-ctrl-click-effects) (Allows ctrl-clicking (⌘-click for mac) effect or condition links to add them to selected tokens instead of dragging)
 - [PF2e Subsystems](https://foundryvtt.com/packages/pf2e-subsystems) (Adds handling of various subsystems such as influence and chase)
-- [PF2e Item Revitalizer](https://foundryvtt.com/packages/pf2e-item-revitalizer) (Assists in refreshing Items on actors from the system compendiums to update them)
-- [PF2e Proficiency Without Level for NPCs](https://foundryvtt.com/packages/pf2e-flatten) (Extends the Proficiency Without Level rules to NPCs)
-- [PF2e Heroic Crafting Automation](https://foundryvtt.com/packages/pf2e-heroic-crafting-automation) (Adds support for 3rd party Heroic Crafting rules)
 - [Pf2e Damage Estimate](https://foundryvtt.com/packages/pf2e-damage-estimate) (Estimates damage output in the roll dialog)
 - [PF2e Use all module tokens](https://foundryvtt.com/packages/pf2e-all-tokens) (Provides mapping to use all premium module tokens without having those modules active)
 - [PF2e Chances](https://foundryvtt.com/packages/pf2e-chances) (Shows chances of each degree of success for a roll)
 - [PF2e Summons Assistant](https://foundryvtt.com/packages/pf2e-summons-assistant) (Automation for summoning tokens from spells and feats)
 - [PF2e Skill Actions](https://foundryvtt.com/packages/pf2e-skill-actions) (Adds skill actions to the sheet)
 - [PF2e Request Rolls](https://foundryvtt.com/packages/pf2e-request-rolls) (Adds ui to generate checks, track checks sent to players, and create inline links to requests)
-- [PF2e Trigger](https://foundryvtt.com/packages/pf2e-trigger) (Allows creation of automations based on triggering conditions/events and triggered actions)
-- [PF2e Visioner](https://foundryvtt.com/packages/pf2e-visioner) (Adds relative detection states per token)
-- [PF2e Manual Action Tracker](https://foundryvtt.com/packages/pf2e-manual-action-tracker) (Adds floating tracker to mark actions and reactions as used or unused)
 - [PF2E Technicolor Traits](https://foundryvtt.com/packages/pf2e-technicolor-traits) (Color-codes traits based on importance and additional rules)
+- [Sundry](https://foundryvtt.com/packages/sundry) (Collection of smaller optional tweaks)
+- [PF2e Runesmith Assistant](https://foundryvtt.com/packages/pf2e-runesmith-assistant) (Module to help support Runesmith features)
+- [PF2e/SF2e Skill Issue](https://foundryvtt.com/packages/pf2e-skill-issue) (Adds a skill manager to track skill increases)
+- [PF2e/SF2e Monster Parts](https://foundryvtt.com/packages/pf2e-monster-parts) (Adds support for the Battlezoo Monster Parts subsystem)
+- [PF2e/SF2e Feat Filter](https://foundryvtt.com/packages/pf2e-feat-filter) (Adds pre-requisite filters when searching for feats)
+- [PF2e Level-Up Wizard](https://foundryvtt.com/packages/pf2e-level-up-wizard) (Adds a dialog to leveling up)
 
 Compendiums
-- [PF2e Playtest Data](https://foundryvtt.com/packages/pf2e-playtest-data) (Provides classes that Paizo has in playtest when there is one)
 - [PF2e Relics](https://foundryvtt.com/packages/pf2e-relics) (A compendium of pre-built relic gifts)
 - [PF2e Specific Familiars](https://forge-vtt.com/bazaar/package/pf2e-specific-familiars) (A compendium of pre-built specific familiars and their features)
 - [PF2e Legacy Content](https://foundryvtt.com/packages/pf2e-legacy-content) (A compendium snapshot of PF2e system content as it appeared before the remaster)
@@ -75,23 +80,23 @@ Class Specific
 - [PF2e Kineticist's Companion](https://foundryvtt.com/packages/pf2e-kineticists-companion) (Adds automation for some kineticist features such as armor feats and timber sentinel)
 - [PF2e Alchemist Remaster Duct Tape](https://foundryvtt.com/packages/pf2e-alchemist-remaster-ducttape) (Adds various QoL features for Alchemists)
 
-AP Specific
+AP Specific Third Party modules
 - [PF2e - Kingdom Building, Camping & Weather](https://foundryvtt.com/packages/pf2e-kingmaker-tools) (Features for Kingmaker including camping, kingdom events, and variant rules)
 - [Pathfinder - Kingmaker Map Remake (Unofficial)](https://foundryvtt.com/packages/pf2e-kingmaker-map-remake) (A collection of maps from Kingmaker AP)
 - [PF2e Season of Ghosts Tools](https://foundryvtt.com/packages/pf2e-season-of-ghosts-tools) (Additions for Season of Ghosts AP)
-- [Footsteps of Otari](https://foundryvtt.com/packages/footsteps-of-otari) (Additions for Abomination Vaults AP)
+- [Season of Ghosts Extra Maps](https://foundryvtt.com/packages/season-of-ghosts-extra-maps) (Extra Maps for SoG)
 - [PF2e Abomination Vaults: Expanded](https://foundryvtt.com/packages/pf2e-abomination-vaults-expanded) (3rd party additions for Abomination Vaults AP. Can make the AP deadlier, so be sure you review what it adds)
 - [Abomination Vaults: Addons (PF2e)](https://foundryvtt.com/packages/abomination-vaults-addons) (Additions for Abomination Vaults AP)
+- [Fist of the Ruby Phoenix: Addons](https://foundryvtt.com/packages/fist-of-the-ruby-phoenix-addons) (Additions for Abomination Vaults AP)
+- [Claws of the Tyrant: Addons](https://foundryvtt.com/packages/claws-of-the-tyrant-addons) (Additions for the Claws of the Tryant adventure)
+
 Content modules with both Paizo and third party material are also available:
 
 [Official Premium Modules](https://paizo.com/store/gaming/accessories/virtualTableTop/foundryVirtualTabletop):
-- Pathfinder Tokens: Bestiaries (Art and tokens for 1,200+ creatures, automatically maps to the compendiums)
-- Pathfinder Beginner Box (Official Paizo module)
-- Every adventure path Outlaws of Alkenstar and newer, plus Abomination Vaults, the Beginner Box, PFS scenarios for seasons 5 and 6, and many adventures. New AP volumes are generally released the day of the book release.
+- Pathfinder and Starfinder Token Packs (Art and tokens for creatures, automatically maps to the compendiums)
+- Pathfinder Beginner Box (Official Paizo module for both Beginner Boxes)
+- Every adventure path Outlaws of Alkenstar and newer, plus Abomination Vaults and Kingmaker, the Beginner Box, PFS scenarios for seasons 5, 6, and 7, SFS season 1, plus and many adventures. New AP volumes are generally released the day of the book release.
 
-Note that with the official modules if you own the appropriate PDF you will be able to purchase the module at a discounted price, see the description of each module for details. Modules with no single associated PDF such as the token pack do not have a discount available. The premium Abomination Vaults module is associated with the single PDF hardcover release of the adventure path, not the earlier 3 book release. Similarly, the Gatewalkers remaster release is connected to the remastered hardcover book, not the three volume version (those have separate modules for each book.
-
-If you don't want a PDF of the adventure then the Paizo modules can also be purchased at the [Foundry VTT Store](https://www.foundryvtt.store/creators/paizo). If you have the associated PDF already the cheapest place to get the module is the Paizo website.
 
 Third Party Premium Modules:
 - [Battlezoo](https://battlezoo.com/products/) (Premium modules by Roll for Combat)
@@ -102,7 +107,7 @@ Third Party Premium Modules:
 
 All published Paizo monsters are included in the system. Don't import all the NPCs at once - just import them as you need them. If you import every single NPC, your Foundry world will grind to a halt, and you'll miss any corrections to the NPCs.
 
-Artwork isn't included, as we're not allowed to share that. You can get the artwork from official PDFs, extract and apply them with the PDF to Foundry module (you need to drag the creatures out of the compendium to see the art, not all creatures have art that can be added this way), google image search, or from the [Archives of Nethys](https://2e.aonprd.com/). If you'd like to update the artwork en masse, the [Compendium Image Mapper](https://foundryvtt.com/packages/imagemapper/) module can help automate most of the process.
+Artwork isn't included, as we're not allowed to share that. You can get the artwork from official PDFs, extract and apply them with the PDF to Foundry module. If you'd like to update the artwork en masse, the [Compendium Image Mapper](https://foundryvtt.com/packages/imagemapper/) module can help automate most of the process.
 
 ### Creating or Editing NPCs
 

@@ -2,7 +2,7 @@ This page describes how to help out with the glamourous task of data entry and u
 
 The basic principle is simple: you create a local copy of the Pathfinder 2 system, make your edits in Foundry, and then submit your changes. The changes get sanity checked by someone else, and then added into the next release of the system!
 
-The rest of the page describes these steps in more detail, and assumes that you have very little technical knowledge, and are using Windows 10/11. 
+The rest of the page describes these steps in more detail, assumes that you have very little technical knowledge, and are using Windows 10/11. 
 
 If you're familiar with git, go read contributing.md, as that has the short version of this page ;).
 
@@ -14,7 +14,7 @@ You will need to set your forked repository to public.
 
 ## Making a Local Version
 You need to install some software first, which will let you download the Pathfinder 2 system and edit it. Download and install these programs:
-* [Node.js](https://nodejs.org/) (Use Node version 24.11)
+* [Node.js](https://nodejs.org/) (Use Node version 26)
 * [Git](https://git-scm.com/download/win)
 
 The next step is to use these bits of software to create your own local version. Start up "git cmd" - if you're on Windows, it should start up in your local user folder, which is fine. Replace the `<yourName>` in the following text, type it into the command line, and press enter `git clone https://github.com/<yourName>/pf2e.git master` This tells git to go and find the Pathfinder 2e system, and put a copy of it into a folder called 'master'. Then run `npm install -g pnpm@latest-10` to install pnpm.
@@ -124,6 +124,12 @@ git push --force origin master
 ```
 
 This is a hard reset from the main repo. It shouldn't be necessary often, only when your fork is having issues. It will clear any changes you have made to your master branch and overwrite them.
+
+## Useful Tools
+We have a handful of useful tools for doing system data entry, collected here for ease of reference:
+- The [Data Entry Tool](https://github.com/TikaelSol/PF2e-Foundry-Data-Entry) automates formatting text into the system's style. Since this is automatic you do have to check for accuracy after using it.
+- We have a collection of [helpful macros](https://gitlab.com/-/snippets/2147203)
+- The [Pyxie](https://foundryvtt.com/packages/pyxie) module adds several features to aid in data entry such as highlighting broken links on other tabs or actions missing categories.
 
 
 ## Reminder List
