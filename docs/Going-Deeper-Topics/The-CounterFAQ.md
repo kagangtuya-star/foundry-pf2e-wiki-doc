@@ -24,9 +24,9 @@ The Pathfinder Second Edition system in Foundry adopts language from _Player Cor
 
 ---
 
-### Why can't the Medic archetype's Treat Condition feat be added to a free archetype feat slot?
+### Why can't the Medic archetype's Treat Condition feat be added to a Free Archetype feat slot?
 
-Free archetype provides additional class feats (_GM Core_ pg. 84):
+Free Archetype provides additional class feats (_GM Core_ pg. 84):
 
 > The only difference between a normal character and a free-archetype character is that the character receives an extra class feat at 2nd level and every even level thereafter that they can use only for archetype feats.
 
@@ -39,24 +39,3 @@ Some archetype feats, like Treat Condition, are instead skill feats (_ibid._):
 > Some archetype feats in other books have the skill trait, allowing you to take them in place of a skill feat rather than a class feat. A skill feat still counts to satisfy the requirement of the dedication.
 
 If a GM wishes to allow an archetype skill feat to be taken instead of an archetype class feat, this can be done in Foundry by changing the category of the feat to "Class Feat".
-
----
-
-### Why isn't Deadly Simplicity upgrading my simple weapon with the two hand trait?
-
-A weapon with the Two-Hand trait changes its damage die size when held in two hands. This change is effectively an increase, and we treat it as such for the final sentence of the "Increasing Die Size" section of _Pathfinder Player Core_ (pg 406):
-
-> When an effect calls on you to increase the size of your weapon damage dice, instead of using its normal weapon damage dice, use the next larger die, as listed below (so if you were using a d4, you’d use a d6, and so on). If you are already using a d12, the size is already at its maximum. **You can’t increase your weapon damage die size more than once.**
-
----
-
-### Why are undead PCs not affected by bleed damage in Foundry?
-
-It is true that undead PCs do not benefit from the Undead trait, instead receiving "Basic Undead Benefits." However, the Undead trait _also_ has no statement on bleed damage. Instead, we learn about it from the "Damage Types" section of _Pathfinder Player Core_ (pg. 409):
-
-> Another special type of physical damage is **bleed damage**. This is persistent damage that represents loss of blood. As such, it has no effect on nonliving creatures or living creatures that don’t need blood to live.
-
-As undead PCs are not living creatures (unlike undead eidolons or PCs with the Poppet ancestry, both of which are called out as living), an interaction rule applies (ibid., "Ancestry Entries", pg. 41):
-
-> ### Traits
-> These descriptors have no mechanical benefit, but they're important for determining how certain spells, effects, and other aspects of the game interact with your character.
