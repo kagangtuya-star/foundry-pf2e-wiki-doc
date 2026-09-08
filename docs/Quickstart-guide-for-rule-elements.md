@@ -2477,35 +2477,37 @@ Right now the valid list of alteration properties and the modes they support is 
 |area-size|spell|add, subtract, upgrade, downgrade, override|
 |badge-max|effect|downgrade, override|
 |badge-value|condition, effect|add, downgrade, override, remove, subtract, upgrade|
-|bulk|armor, backpack, book, consumable, equipment, shield, treasure, weapon|override|
+|bulk|ammo, armor, backpack, book, consumable, equipment, shield, treasure, weapon|override|
+|capacity|weapon|add, downgrade, override, subtract, multiply, upgrade|
 |category|armor|override|
 |check-penalty|armor|add, downgrade, override, remove, subtract, upgrade|
 |damage-dice-faces|weapon|downgrade, override, upgrade|
 |damage-dice-number|weapon|add, downgrade, override, remove, subtract, upgrade|
 |damage-type|weapon|override|
 |defense-passive|spell|override|
-|description|action, ancestry, affliction, armor, background, backpack, book, campaignFeature, class, condition, consumable, deity, effect, equipment, feat, heritage, kit, lore, melee, shield, spell, spellcastingEntry, treasure, weapon|add, override|
+|description|action, affliction, ammo, ancestry, armor, background, backpack, book, campaignFeature, class, condition, consumable, deity, effect, equipment, feat, heritage, kit, lore, melee, shield, spell, spellcastingEntry, treasure, weapon|add, override|
 |dex-cap|armor|add, downgrade, override, remove, subtract, upgrade|
 |focus-point-cost|spell|add, override, upgrade|
 |frequency-max|action, feat|add, downgrade, multiply, override, remove, subtract, upgrade|
 |frequency-per|action, feat|downgrade, override, upgrade|
+|grade|armor, weapon, shield|override, upgrade|
 |group|armor, weapon|override|
-|hardness|armor, backpack, book, consumable, equipment, shield, treasure, weapon|add, downgrade, multiply, override, remove, subtract, upgrade|
-|hp-max|armor, backpack, book, consumable, equipment, shield, treasure, weapon|add, downgrade, multiply, override, remove, subtract, upgrade|
-|material-type|armor, backpack, book, consumable, equipment, shield, treasure, weapon|override|
-|name|action, ancestry, affliction, armor, background, backpack, book, campaignFeature, class, condition, consumable, deity, effect, equipment, feat, heritage, kit, lore, melee, shield, spell, spellcastingEntry, treasure, weapon|override|
-|other-tags|action, ancestry, affliction, armor, background, backpack, book, campaignFeature, class, condition, consumable, deity, effect, equipment, feat, heritage, kit, lore, melee, shield, spell, spellcastingEntry, treasure, weapon|add, subtract, remove|
+|hardness|ammo, armor, backpack, book, consumable, equipment, shield, treasure, weapon|add, downgrade, multiply, override, remove, subtract, upgrade|
+|hp-max|ammo, armor, backpack, book, consumable, equipment, shield, treasure, weapon|add, downgrade, multiply, override, remove, subtract, upgrade|
+|material-type|ammo, armor, backpack, book, consumable, equipment, shield, treasure, weapon|override|
+|name|action, affliction, ammo, ancestry, armor, background, backpack, book, campaignFeature, class, condition, consumable, deity, effect, equipment, feat, heritage, kit, lore, melee, shield, spell, spellcastingEntry, treasure, weapon|override|
+|other-tags|action, affliction, ammo, ancestry, armor, background, backpack, book, campaignFeature, class, condition, consumable, deity, effect, equipment, feat, heritage, kit, lore, melee, shield, spell, spellcastingEntry, treasure, weapon|add, subtract, remove|
 |pd-recovery-dc|condition|add, downgrade, override, remove, subtract, upgrade|
 |persistent-damage|condition|override|
-|runes-potency|weapon, armor|upgrade, override|
+|rarity|ammo, armor, backpack, book, consumable, equipment, shield, treasure, weapon|override|
 |range-increment|weapon|add, multiply, override, remove, subtract|
 |range-max|weapon|add, multiply, override, remove, subtract|
-|rarity|armor, backpack, book, consumable, equipment, shield, treasure, weapon|override|
-|resilient|armor|upgrade, override|
+|runes-potency|weapon, armor|upgrade, override|
+|runes-resilient|armor|upgrade, override|
+|runes-striking|weapon|upgrade, override|
 |speed-penalty|armor, shield|add, downgrade, override, remove, subtract, upgrade|
 |strength|armor|add, downgrade, override, remove, subtract, upgrade|
-|runes-striking|weapon|upgrade, override|
-|traits|action, ancestry, affliction, armor, background, backpack, book, campaignFeature, class, condition, consumable, effect, equipment, feat, heritage, kit, melee, shield, spell, treasure, weapon|add, remove, subtract|
+|traits|action, affliction, ammo, ancestry, armor, backpack, book, campaignFeature, condition, consumable, effect, equipment, feat, heritage, kit, melee, shield, spell, weapon|add, remove, subtract|
 
 For the `frequency-per` property the values are listed below (`PT10M` is `per 10 minutes`, etc):
 
