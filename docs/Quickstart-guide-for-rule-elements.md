@@ -4,7 +4,7 @@ Rule elements are how the PF2e system handles most of the basic automation for f
 
 ## What is a Rule Element?
 
-A series of instructions in JavaScript Object Notation (JSON) that can be applied to an item, when that item is then put on an actor it modifies the character sheet in some way.  It's another way to automation without coding! We use them as the preferred way to handle automation in the system, as they do not require hard coding into the actual system code. Despite looking a little odd at first glance they are much easier and more flexible to write than macros, and the system is building out a UI for rule elements to help you make them even easier.
+A rule element is a series of instructions in JavaScript Object Notation (JSON) that can be applied to an item in Foundry, when that item is then put on an actor it modifies the character sheet in some way.  It's a way to automate without coding! We use them as the preferred way to handle automation in the system, as they do not require hard coding into the actual system. Despite looking a little odd at first glance they are much easier and more flexible to write than macros, and the system is building out a UI for rule elements to help you make them even easier.
 
 Rule elements are stable, if you have an error or make a mistake nothing should break, but still some of the more advanced rule elements could in theory damage actors or cause Foundry to hang and require a restart. Take care when adding rule elements, make sure to do any troubleshooting/experimenting on a test actor.
 
@@ -14,7 +14,7 @@ We have a video going over a lot of rule element basics, which you may find to b
 
 ## How do rule elements work?
 
-1. By default the GM can always see the rules tab on items. If you want to allow players to see this tab as well you can enable it in the system settings.
+1. By default only the GM can always see the rules tab on items. If you want to allow players to see this tab as well you can enable it in the system settings.
 2. Try some out, head to the compendia, and find spell effects, pick one and drag it to your character.
     - Courageous Anthem is a good place to start.
 3. Open up the spell effect you chose and look at Rules Tab notice text in the boxes, that is a rule element
