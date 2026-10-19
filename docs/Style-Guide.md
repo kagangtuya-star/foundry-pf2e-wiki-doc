@@ -6,6 +6,8 @@ This page will often refer to `items`. When we do this we are using the Foundry 
 
 We have [an automated script](https://github.com/TikaelSol/PF2e-Foundry-Data-Entry) to help with data entry. It will automatically set up most of the inline formatting for you, and it is encouraged that you always use the latest version of the tool available. As with any automated tool you should double check the output. When major updates are done to the tool we send a message on discord to the data entry team. If you are routinely doing system data entry and do not have this role please ask to have it added to you so you have access to the data entry dev channels. This role does require a history of system contributions however, as our dev channels are not meant to be public.
 
+All system data entry must be checked against the latest versions of the Paizo PDFs and Paizo's official errata. Archives of Nethys and Demiplane are useful but we should check the original source to ensure we do not propagate errors from other sources.
+
 ## Inline Automation
 
 The system makes extensive use of inline automation, from inline checks, damage rolls, and template buttons. Here we detail each of those types of inline automation and how to use them. For any of these inline options for system entry always put parameters in the order they are listed in this guide.

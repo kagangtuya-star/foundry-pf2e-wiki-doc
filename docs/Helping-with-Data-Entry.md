@@ -2,6 +2,9 @@ This page describes how to help out with the glamourous task of data entry and u
 
 The basic principle is simple: you create a local copy of the Pathfinder 2 system, make your edits in Foundry, and then submit your changes. The changes get sanity checked by someone else, and then added into the next release of the system!
 
+
+Noe that all system data entry must be checked against the latest versions of the Paizo PDFs and Paizo's official errata. Archives of Nethys and Demiplane are useful but we should check the original source to ensure we do not propagate errors from other sources.
+
 The rest of the page describes these steps in more detail, assumes that you have very little technical knowledge, and are using Windows 10/11. 
 
 If you're familiar with git, go read contributing.md, as that has the short version of this page ;).
