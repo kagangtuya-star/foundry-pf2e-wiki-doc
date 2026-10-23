@@ -766,6 +766,37 @@ The above example can be done in a more compact way, since it affects all outcom
 }
 ```
 
+As of PF2e 8.6.1 and SF2e 1.6.1 you can also adjust the degree of success on a target or origin without making a separate ephemeral effect.
+
+```json
+{
+  "key": "AdjustDegreeOfSuccess",
+  "selector": "intimidation",
+  "adjustment": {
+    "all": "one-degree-worse"
+  },
+  "affects": "origin"
+}
+```
+
+The above reduces the degree of success of any intimidation roll against the actor that owns the rule. You can also use `target` to modify the degree of success for your target against your saves.
+
+```json
+{
+  "key": "AdjustDegreeOfSuccess",
+  "selector": "reflex",
+  "adjustment": {
+    "all": "one-degree-worse"
+  },
+  "affects": "target",
+  "predicate": [
+    "item:type:spell"
+  ]
+}
+```
+
+This would reduce the degree of success for any creature making a reflex save against a spell the actor sends to chat.
+
 ## Adjust Modifier
 
 AdjustModifier allows you to take a modifier and change it before it applies. Take for example, a feat that added one damage to all strikes and doubled that bonus against unholy targets.
