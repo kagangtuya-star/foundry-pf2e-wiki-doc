@@ -475,7 +475,22 @@ Here we changed the second parameter to use the simpler `lte()`, since the overl
 }
 ```
 
+## Equipped and Invested Items
 
+For the rule elements on a physical item to be active the item must be properly equipped, and if it has the invested trait the item must be invested. So if the item's usage says "held in two hands" you have to set the item to be in two hands in order for the rules to work. These can both be worked around, if desired, by setting the `requiresEquipped` or `requiresInvestment` properties to `false`. for example,
+
+```json
+{
+    "key": "FlatModifier",
+    "selector": "diplomacy",
+    "value": 2,
+    "label": "Ceremonial Sword",
+    "type": "circumstance",
+    "requiresEquipped": false
+}
+```
+
+Putting the above rule on a shortsword would still give the Diplomacy bonus even if the sword is sheathed.
 
 # Rule Elements
 
@@ -3178,6 +3193,24 @@ SpecialStatistic can also be used to build a statistic from scratch. For example
 ```
 
 The FlatModifier adds in the equivalent of a trained proficiency to the roll.
+
+There's one more feature of SpecialStatistic to cover. It can be used to define an item casting statistic to allow for item casting (scrolls, wands, and spell gems only) without the Trick Magic Item feat or a spellcasting entry. This is necessary because spellcasting of this type requires a DC to fall back on.
+
+```json
+{
+  "extends": "class",
+  "itemCasting": {
+    "predicate": [
+      "item:category:spell-gem"
+    ]
+  },
+  "key": "SpecialStatistic",
+  "priority": 101,
+  "slug": "spell-gemery-or-something"
+}
+```
+
+The above would allow for the use of spell gems without otherwise qualifying, much like the Scroll Thaumaturgy feat allows for the use of scrolls without spellcasting.
 
 ## Strike
 
