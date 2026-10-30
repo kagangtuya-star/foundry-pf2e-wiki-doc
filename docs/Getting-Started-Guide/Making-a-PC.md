@@ -550,7 +550,7 @@ There is no native support for Exploit Vulnerability. The [PF2e Exploit Vulnerab
 
 ## Witch
 
-Wizard is a [prepared](#prepared-casters) caster who uses intelligence as their casting attribute. The tradition you select will depend on your familiar.  See the [familiars](#familiars) section for setting up your familiar. Track your spells on your Witch actor, not the familiar actor. Your hex spells will be modified to note your familiar's ability automatically by the system.
+Witch is a [prepared](#prepared-casters) caster who uses intelligence as their casting attribute. The tradition you select will depend on your familiar.  See the [familiars](#familiars) section for setting up your familiar. Track your spells on your Witch actor, not the familiar actor. Your hex spells will be modified to note your familiar's ability automatically by the system.
 
 ![image](https://github.com/user-attachments/assets/0307a20d-f077-4993-8034-426dcb9fc348)
 
